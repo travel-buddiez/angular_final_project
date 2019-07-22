@@ -3,11 +3,25 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { RegistrationComponent } from './components/registration/registration.component';
+import { HeaderComponent } from './components/header/header.component';
+import { LoginComponent } from './components/login/login.component';
+import { LandingComponent } from './components/landing/landing.component';
+import { ProfileComponent } from './components/profile/profile.component';
+import { EditprofileComponent } from './components/editprofile/editprofile.component';
+import { ClickedContinentPageComponent } from './components/clicked-continent-page/clicked-continent-page.component';
+import { EditContinentPageComponent } from './components/edit-continent-page/edit-continent-page.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    RegistrationComponent
+    RegistrationComponent,
+    HeaderComponent,
+    LoginComponent,
+    LandingComponent,
+    ProfileComponent,
+    EditprofileComponent,
+    ClickedContinentPageComponent,
+    EditContinentPageComponent
   ],
   imports: [
     BrowserModule
