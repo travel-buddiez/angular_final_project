@@ -6,7 +6,7 @@ import { Observable, Subject } from 'rxjs';
 import { RegisterUser } from '../models/RegisterUser';
 import { Token } from '../models/Token';
 
-// const Api_Url = '';
+const Api_Url = '';
 
 @Injectable({
   providedIn: 'root'
@@ -33,12 +33,12 @@ export class AuthService {
   }
 
   currentUser(): Observable<Object> {
-    if (!localStorage.getItem('id_token')) { return new Observable(observer => observer.next(false)); }
+    if (!localStorage.getItem('id_token')) { return new Observable(observer => observer.next(false))};
 
     return this._http.get(`${Api_Url}/UserInfo`, { headers: this.setHeader() });
   }
 
-  logout(): Observable<Object> {
+  logout() {
     localStorage.clear();
     this.isLoggedIn.next(false);
 
