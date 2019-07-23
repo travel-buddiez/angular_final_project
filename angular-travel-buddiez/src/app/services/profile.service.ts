@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
-// const Api_Url = ''
+const Api_Url = ''
 
 @Injectable({
   providedIn: 'root'
