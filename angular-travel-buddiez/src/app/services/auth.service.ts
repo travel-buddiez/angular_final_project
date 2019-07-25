@@ -6,7 +6,7 @@ import { Observable, Subject } from 'rxjs';
 import { RegisterUser } from '../models/RegisterUser';
 import { Token } from '../models/Token';
 
-const Api_Url = '';
+const Api_Url = 'http://localhost:5000';
 
 @Injectable({
   providedIn: 'root'
@@ -18,14 +18,14 @@ export class AuthService {
   constructor(private _http: HttpClient, private _router: Router) { }
 
   register(regUserData: RegisterUser) {
-    return this._http.post(`${Api_Url}`, regUserData);
+    return this._http.post(`${Api_Url}/user`, regUserData);
   }
 
   login(loginInfo) {
     const str =
       `grant_type=password&username=${encodeURI(loginInfo.username)}&password=${encodeURI(loginInfo.password)}`;
 
-    return this._http.post(`${Api_Url}/token`, str).subscribe( (token: Token) => {
+    return this._http.post(`${Api_Url}`, str).subscribe( (token: Token) => {
       localStorage.setItem('id_token', token.access_token);
       this.isLoggedIn.next(true);
       this._router.navigate(['/main']);
@@ -35,7 +35,8 @@ export class AuthService {
   currentUser(): Observable<Object> {
     if (!localStorage.getItem('id_token')) { return new Observable(observer => observer.next(false))};
 
-    return this._http.get(`${Api_Url}/UserInfo`, { headers: this.setHeader() });
+    this._http.get(`${Api_Url}/Profile`, { headers: this.setHeader() });
+    this._router.navigate(['profile']);
   }
 
   logout() {
