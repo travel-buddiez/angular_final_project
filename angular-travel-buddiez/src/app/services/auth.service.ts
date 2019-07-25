@@ -2,33 +2,33 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { Observable, Subject } from 'rxjs';
-
 import { RegisterUser } from '../models/RegisterUser';
 import { Token } from '../models/Token';
+import { LoginUser } from "../models/loginUser"
+import { User } from "../models/UserInfo"
 
-const Api_Url = '';
+const Api_Url = 'http://localhost:5000';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-  userInfo: Token;
+  userInfo = new Subject<User>();
   isLoggedIn = new Subject<boolean>();
 
   constructor(private _http: HttpClient, private _router: Router) { }
 
   register(regUserData: RegisterUser) {
-    return this._http.post(`${Api_Url}`, regUserData);
+    return this._http.post(`${Api_Url}/user/`, regUserData);
   }
 
-  login(loginInfo) {
-    const str =
-      `grant_type=password&username=${encodeURI(loginInfo.username)}&password=${encodeURI(loginInfo.password)}`;
-
-    return this._http.post(`${Api_Url}/token`, str).subscribe( (token: Token) => {
-      localStorage.setItem('id_token', token.access_token);
+  login(loginUserData: LoginUser) {
+    return this._http.post(`${Api_Url}/auth/login`, loginUserData).subscribe
+    ( (token: Token) => {
+      localStorage.setItem("auth_token", token.Authorization);
+      this.getMe();
+      this._router.navigate(["/"]);
       this.isLoggedIn.next(true);
-      this._router.navigate(['/main']);
     });
   }
 
@@ -44,6 +44,11 @@ export class AuthService {
 
     this._http.post(`${Api_Url}/logout`, { headers: this.setHeader() });
     this._router.navigate(['/login']);
+  }
+
+  getMe() {
+    return this._http.get(`${Api_Url}/users/me`, { headers: this.setHeader() })
+    .subscribe( (user: User) => { this.userInfo.next(user); });
   }
 
   private setHeader(): HttpHeaders {
