@@ -1,1 +1,6 @@
 @import '@angular/material/prebuilt-themes/pink-bluegrey.css';
+
+body {
+    height: 100vh;
+    background: url("./assets/img/globe.jpeg") fixed;
+}

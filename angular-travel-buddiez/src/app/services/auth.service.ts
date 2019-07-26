@@ -35,7 +35,8 @@ export class AuthService {
   currentUser(): Observable<Object> {
     if (!localStorage.getItem('id_token')) { return new Observable(observer => observer.next(false))};
 
-    return this._http.get(`${Api_Url}/UserInfo`, { headers: this.setHeader() });
+    this._http.get(`${Api_Url}/Profile`, { headers: this.setHeader() });
+    this._router.navigate(['profile']);
   }
 
   logout() {
