@@ -7,9 +7,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+  auth: boolean;
 
   ngOnInit() {
-  }
+    this.authenticated();
 
+   }
+   authenticated() {
+     this.auth = false;
+   }
 }
