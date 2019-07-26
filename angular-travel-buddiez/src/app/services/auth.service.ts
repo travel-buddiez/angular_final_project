@@ -27,7 +27,7 @@ export class AuthService {
     ( (token: Token) => {
       localStorage.setItem("auth_token", token.Authorization);
       this.getMe();
-      this._router.navigate(["/"]);
+      this._router.navigate(["/home/logged-in"]);
       this.isLoggedIn.next(true);
     });
   }
