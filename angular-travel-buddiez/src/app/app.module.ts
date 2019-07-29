@@ -36,7 +36,7 @@ const routes = [
     { path: 'edit-profile', component: EditprofileComponent }
   ]},
   { path: 'main', component: ClickedContinentPageComponent, children: [
-    { path: '', component: ClickedContinentPageComponent },
+    // { path: '', component: ClickedContinentPageComponent },
     { path: 'edit-continent-page', component: EditContinentPageComponent }
   ]},
   { path: '**', component: LandingComponent}
