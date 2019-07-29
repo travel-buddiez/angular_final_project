@@ -3,4 +3,9 @@
 body {
     height: 100vh;
     background: url("./assets/img/globe.jpeg") fixed;
+    background-repeat: no-repeat;
+}
+
+a {
+    color: #F5F1E3;
 }

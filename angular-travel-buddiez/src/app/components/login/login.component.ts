@@ -10,9 +10,9 @@ import { AuthService } from '../../services/auth.service';
 })
 export class LoginComponent implements OnInit {
 
-  public loginForm: FormGroup;
+  private _loginForm: FormGroup;
 
-  constructor(private _form: FormBuilder, private authService: AuthService) {
+  constructor(private _form: FormBuilder, private _authService: AuthService) {
     this.createForm();
    }
 
@@ -20,14 +20,14 @@ export class LoginComponent implements OnInit {
   }
 
   createForm() {
-    this.loginForm = this._form.group({
+    this._loginForm = this._form.group({
       email: new FormControl,
       password: new FormControl
     });
   }
 
   onSubmit() {
-    this.authService.login(this.loginForm.value);
+    this._authService.login(this._loginForm.value);
   }
 
 }
