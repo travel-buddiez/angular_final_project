@@ -1,5 +1,23 @@
-#register_input {
-    border: 2px;
-    background-color: black;
-    color: white;
+.wrapper{
+    align-content: center;
+    margin: 100px;
+}
+
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    width: 40%;
+    background-color: #1F363D;
+}
+
+.card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+.container {
+    padding: 100px 50px 100px 0;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    justify-content: center;
 }
