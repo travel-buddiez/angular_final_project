@@ -27,7 +27,7 @@ export class AuthService {
     ( (token: Token) => {
       localStorage.setItem("auth_token", token.Authorization);
       this.getMe();
-      this._router.navigate(["/home/logged-in"]);
+      this._router.navigate(['../components/clicked-continent-page']);
       this.isLoggedIn.next(true);
     });
   }
@@ -35,18 +35,18 @@ export class AuthService {
   currentUser(): Observable<Object> {
     if (!localStorage.getItem('id_token')) { return new Observable(observer => observer.next(false))};
 
-    this._http.get(`${Api_Url}/Profile`, { headers: this.setHeader() });
-    this._router.navigate(['profile']);
+    this._http.get(`${Api_Url}`, { headers: this.setHeader() });
+    this._router.navigate(['../components/profile']);
   }
 
   logout() {
     localStorage.clear();
     this.isLoggedIn.next(false);
-    this._router.navigate(['/login']);
+    this._router.navigate(['../components/login']);
   }
 
   getMe() {
-    return this._http.get(`${Api_Url}/users/me`, { headers: this.setHeader() })
+    return this._http.get(`${Api_Url}/users`, { headers: this.setHeader() })
     .subscribe( (user: User) => { this.userInfo.next(user); });
   }
 
