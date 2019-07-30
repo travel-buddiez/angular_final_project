@@ -26,32 +26,15 @@ export class AuthService {
     return this._http.post(`${Api_Url}/auth/login`, loginUserData).subscribe
     ( (token: Token) => {
       localStorage.setItem("auth_token", token.Authorization);
-      this.getMe();
       this._router.navigate(['../components/clicked-continent-page']);
       this.isLoggedIn.next(true);
     });
-  }
-
-  currentUser(): Observable<Object> {
-    if (!localStorage.getItem('id_token')) { return new Observable(observer => observer.next(false))};
-
-    this._http.get(`${Api_Url}`, { headers: this.setHeader() });
-    this._router.navigate(['../components/profile']);
   }
 
   logout() {
     localStorage.clear();
     this.isLoggedIn.next(false);
     this._router.navigate(['../components/login']);
-  }
-
-  getMe() {
-    return this._http.get(`${Api_Url}/users/me`, { headers: this.setHeader() })
-    .subscribe( (user: User) => { this.userInfo.next(user); });
-  }
-
-  editMe(auth_token) {
-    return this._http.get(`${Api_Url}/edit/${auth_token}`, { headers: this.setHeader() });
   }
 
   private setHeader(): HttpHeaders {

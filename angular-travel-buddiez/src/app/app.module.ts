@@ -23,6 +23,7 @@ import { EditContinentPageComponent } from './components/edit-continent-page/edi
 
 import { AuthService } from './services/auth.service';
 import { PostsService } from './services/posts.service';
+import { UserService } from './services/user.service';
 
 const routes = [
   { path: 'home', component: LandingComponent, children: [
@@ -32,11 +33,9 @@ const routes = [
   { path: 'register', component: RegistrationComponent },
   { path: 'login', component: LoginComponent },
   { path: 'profile', component: ProfileComponent, children: [
-    { path: '', component: ProfileComponent },
     { path: 'edit-profile', component: EditprofileComponent }
   ]},
   { path: 'main', component: ClickedContinentPageComponent, children: [
-    // { path: '', component: ClickedContinentPageComponent },
     { path: 'edit-continent-page', component: EditContinentPageComponent }
   ]},
   { path: '**', component: LandingComponent}
@@ -68,7 +67,8 @@ const routes = [
   ],
   providers: [
     AuthService,
-    PostsService
+    PostsService,
+    UserService
   ],
   bootstrap: [AppComponent]
 })

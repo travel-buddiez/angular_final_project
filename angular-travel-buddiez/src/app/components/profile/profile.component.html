@@ -12,8 +12,9 @@
             <li *ngIf="profile">
                 {{profile.profilePic}}
             </li>
-            <a routerLink="../editprofile/<int:id>" class="btn btn-primary">Edit</a>
+            <a routerLink="../editprofile" class="btn btn-primary">Edit</a>
             <a routerLink="" class="btn btn-danger">Delete</a>
+            {% comment %} pop up message asking 'are you sure?' {% endcomment %}
         </div>
     </div>
 </div>
