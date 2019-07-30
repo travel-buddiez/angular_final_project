@@ -14,6 +14,6 @@ export class HeaderComponent implements OnInit {
 
    }
    authenticated() {
-     this.auth = false;
+     this.auth = true;
    }
 }
