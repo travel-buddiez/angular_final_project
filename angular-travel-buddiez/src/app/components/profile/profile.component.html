@@ -1,16 +1,16 @@
 <div class="container">
     <div class="profile_card">
         <h1 style="float: right; color: white;"></h1>
-        <li *ngFor="let user of user">  
-            {{ user.username }}
-            {{ user.name }}  
-            {{ user.registered_on }}  
-            {{ user.bio }}
-        </li>  
+        <li *ngIf="profile">  
+            {{ profile.username }}
+            {{ profile.name }}  
+            {{ profile.registered_on }}  
+            {{ profile.bio }}
+        </li>
         <div class="img_card">
             <h1>user's image goes here</h1>
-            <li *ngFor="let user of user">
-                {{user.profilePic}}
+            <li *ngIf="profile">
+                {{profile.profilePic}}
             </li>
             <a routerLink="../editprofile/<int:id>" class="btn btn-primary">Edit</a>
             <a routerLink="" class="btn btn-danger">Delete</a>

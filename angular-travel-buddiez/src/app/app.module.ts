@@ -22,7 +22,7 @@ import { ClickedContinentPageComponent } from './components/clicked-continent-pa
 import { EditContinentPageComponent } from './components/edit-continent-page/edit-continent-page.component';
 
 import { AuthService } from './services/auth.service';
-import { ProfileService } from './services/profile.service';
+import { PostsService } from './services/posts.service';
 
 const routes = [
   { path: 'home', component: LandingComponent, children: [
@@ -68,7 +68,7 @@ const routes = [
   ],
   providers: [
     AuthService,
-    ProfileService
+    PostsService
   ],
   bootstrap: [AppComponent]
 })

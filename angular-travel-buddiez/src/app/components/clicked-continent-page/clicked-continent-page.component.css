@@ -24,7 +24,7 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    color: black !important;
+    color: white;
     font-size: 30px;
     font-weight: bold;
   }
@@ -43,6 +43,6 @@ img {
   transition: 0.3s;
   margin: 4%;
   color: #F1E9DB;
-  box-shadow: 10px 10px 50px 0px rgba(0,0,0, 1.0);
-  background-color: rgba(255, 255, 255, 0.8)
+  box-shadow: 10px 10px 50px 0px rgba(0,0,0,0.55);
+  background-color: #1F363D;
 }
