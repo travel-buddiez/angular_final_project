@@ -13,11 +13,11 @@ export class ProfileComponent implements OnInit {
   profile: any;
 
   constructor(private authSerivce: AuthService) {
-    this.profile = (localStorage.getItem('auth_token'));
-    console.log(this.profile)
    }
 
   ngOnInit() {
+    this.profile = (localStorage.getItem('auth_token'));
+    console.log(this.profile)
   }
 
 }
