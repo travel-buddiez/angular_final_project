@@ -46,8 +46,12 @@ export class AuthService {
   }
 
   getMe() {
-    return this._http.get(`${Api_Url}/users`, { headers: this.setHeader() })
+    return this._http.get(`${Api_Url}/users/me`, { headers: this.setHeader() })
     .subscribe( (user: User) => { this.userInfo.next(user); });
+  }
+
+  editMe(auth_token) {
+    return this._http.get(`${Api_Url}/edit/${auth_token}`, { headers: this.setHeader() });
   }
 
   private setHeader(): HttpHeaders {
