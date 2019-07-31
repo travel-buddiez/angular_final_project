@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, FormBuilder } from '@angular/forms';
+import { Router } from '@angular/router';
 
 import { AuthService } from '../../services/auth.service';
 
@@ -12,7 +13,7 @@ export class LoginComponent implements OnInit {
 
   private _loginForm: FormGroup;
 
-  constructor(private _form: FormBuilder, private _authService: AuthService) {
+  constructor(private _form: FormBuilder, private _authService: AuthService, private _router: Router) {
     this.createForm();
    }
 
@@ -28,6 +29,11 @@ export class LoginComponent implements OnInit {
 
   onSubmit() {
     this._authService.login(this._loginForm.value);
+    this._router.navigate(['../clicked-continent-page']);
+  }
+
+  logout() {
+    this._authService.logout();
   }
 
 }

@@ -4,7 +4,7 @@
         <h4 style="color: white;">Create a new account</h4>
         <hr>
 
-        <div class="wrapper">
+        <div class="wrapper ">
             <form (ngSubmit)="onSubmit()" [formGroup]="_registerForm">
                 <div>
                     <div>
@@ -33,7 +33,7 @@
                         </mat-form-field >
                     </div>
                 </div>
-                <button mat-raised-button class="nav-btn" color="primary" type="submit">Register</button>
+                <button mat-raised-button class="nav-btn" color="primary" type="submit" click="register()">Register</button>
             </form>
         </div>
     </div>

@@ -22,7 +22,10 @@ import { ClickedContinentPageComponent } from './components/clicked-continent-pa
 import { EditContinentPageComponent } from './components/edit-continent-page/edit-continent-page.component';
 
 import { AuthService } from './services/auth.service';
-import { ProfileService } from './services/profile.service';
+import { PostsService } from './services/posts.service';
+import { UserService } from './services/user.service';
+
+import { AuthGuard } from './auth/auth.guard';
 
 const routes = [
   { path: 'home', component: LandingComponent, children: [
@@ -32,11 +35,9 @@ const routes = [
   { path: 'register', component: RegistrationComponent },
   { path: 'login', component: LoginComponent },
   { path: 'profile', component: ProfileComponent, children: [
-    { path: '', component: ProfileComponent },
-    { path: 'edit-profile', component: EditprofileComponent }
+    { path: 'edit-profile/:id', component: EditprofileComponent }
   ]},
-  { path: 'main', component: ClickedContinentPageComponent, children: [
-    // { path: '', component: ClickedContinentPageComponent },
+  { path: 'main', component: ClickedContinentPageComponent, canActivate: [AuthGuard], children: [
     { path: 'edit-continent-page', component: EditContinentPageComponent }
   ]},
   { path: '**', component: LandingComponent}
@@ -68,7 +69,9 @@ const routes = [
   ],
   providers: [
     AuthService,
-    ProfileService
+    PostsService,
+    UserService,
+    AuthGuard
   ],
   bootstrap: [AppComponent]
 })
