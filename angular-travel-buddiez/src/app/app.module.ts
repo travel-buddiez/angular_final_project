@@ -25,6 +25,8 @@ import { AuthService } from './services/auth.service';
 import { PostsService } from './services/posts.service';
 import { UserService } from './services/user.service';
 
+import { AuthGuard } from './auth/auth.guard';
+
 const routes = [
   { path: 'home', component: LandingComponent, children: [
     { path: '', component: LandingComponent },
@@ -33,9 +35,9 @@ const routes = [
   { path: 'register', component: RegistrationComponent },
   { path: 'login', component: LoginComponent },
   { path: 'profile', component: ProfileComponent, children: [
-    { path: 'edit-profile', component: EditprofileComponent }
+    { path: 'edit-profile/:id', component: EditprofileComponent }
   ]},
-  { path: 'main', component: ClickedContinentPageComponent, children: [
+  { path: 'main', component: ClickedContinentPageComponent, canActivate: [AuthGuard], children: [
     { path: 'edit-continent-page', component: EditContinentPageComponent }
   ]},
   { path: '**', component: LandingComponent}
@@ -68,7 +70,8 @@ const routes = [
   providers: [
     AuthService,
     PostsService,
-    UserService
+    UserService,
+    AuthGuard
   ],
   bootstrap: [AppComponent]
 })

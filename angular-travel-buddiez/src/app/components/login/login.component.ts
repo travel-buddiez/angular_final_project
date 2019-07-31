@@ -32,4 +32,8 @@ export class LoginComponent implements OnInit {
     this._router.navigate(['../clicked-continent-page']);
   }
 
+  logout() {
+    this._authService.logout();
+  }
+
 }
