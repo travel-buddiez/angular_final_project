@@ -11,24 +11,26 @@ import { AuthService } from '../../services/auth.service';
 })
 export class RegistrationComponent implements OnInit {
 
-  private _registerForm: FormGroup;
+  registerForm: FormGroup;
 
   constructor(private _form: FormBuilder, private _authService: AuthService, private _router: Router) {
     this.createForm();
    }
 
   createForm() {
-    this._registerForm = this._form.group({
+    this.registerForm = this._form.group({
       name: new FormControl,
       username: new FormControl,
       email: new FormControl,
       password: new FormControl,
-      confirmPassword: new FormControl
+      confirmPassword: new FormControl,
+      bio: new FormControl,
+      profilePic: new FormControl
     });
   }
 
   onSubmit() {
-    this._authService.register(this._registerForm.value).subscribe( () => {
+    this._authService.register(this.registerForm.value).subscribe( () => {
       this._router.navigate(['../login']);
     })
   }

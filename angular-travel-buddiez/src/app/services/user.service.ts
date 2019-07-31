@@ -15,24 +15,16 @@ export class UserService {
 
   constructor(private _http: HttpClient, private _router: Router) { }
 
-  currentUser(): Observable<Object> {
-    if (!localStorage.getItem('id_token')) { return new Observable(observer => observer.next(false))};
-
-    this._http.get(`${Api_Url}`, { headers: this.setHeader() });
-    this._router.navigate(['../components/profile']);
-  }
-
-  getMe() {
-    return this._http.get(`${Api_Url}/users/<public_id>`, { headers: this.setHeader() })
-    .subscribe( (user: User) => { this.userInfo.next(user); });
+  getMe(public_id) {
+    return this._http.get(`${Api_Url}/users/${public_id}`, { headers: this.setHeader() });
   }
 
   editMe(auth_token) {
-    return this._http.get(`${Api_Url}/edit/${auth_token}`, { headers: this.setHeader() });
+    return this._http.put(`${Api_Url}/users/edit/${auth_token}`, { headers: this.setHeader() });
   }
 
   deleteMe(auth_token) {
-    return this._http.get(`${Api_Url}/delete/${auth_token}`, { headers: this.setHeader() });
+    return this._http.delete(`${Api_Url}/users/${auth_token}`, { headers: this.setHeader() });
   }
 
   private setHeader(): HttpHeaders {
