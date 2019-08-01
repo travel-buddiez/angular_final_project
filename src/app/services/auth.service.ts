@@ -13,6 +13,7 @@ const Api_Url = 'http://localhost:5000';
   providedIn: 'root'
 })
 export class AuthService {
+
   userInfo = new Subject<User>();
   isLoggedIn = new Subject<boolean>();
 
