@@ -13,21 +13,21 @@ export class HeaderComponent implements OnInit {
  private _logInForm: FormGroup;
  private _username: string;
  private _subscription;
- private _isLoggedIn;
+ isLoggedIn;
 
- constructor(private _form: FormBuilder, private _service: AuthService) {
+ constructor(private _form: FormBuilder, private _authService: AuthService) {
    this.createForm();
-   this._subscription = this._service.userInfo.subscribe( (value) => {
+   this._subscription = this._authService.userInfo.subscribe( (value) => {
      this._username = value.username;
    });
-   this._isLoggedIn = this._service.isLoggedIn.subscribe( (value) => {
-     this._isLoggedIn = value;
+   this.isLoggedIn = this._authService.isLoggedIn.subscribe( (value) => {
+     this.isLoggedIn = value;
    });
-   this._service.isLoggedIn.next(false)
+   this._authService.isLoggedIn.next(false)
  }
 
  logout() {
-   this._service.logout();
+   this._authService.logout();
  }
 
  ngOnInit() {
@@ -35,7 +35,7 @@ export class HeaderComponent implements OnInit {
 
  ngOnDestroy() {
    this._subscription.unsubscribe();
-   this._isLoggedIn.unsubscribe();
+   this.isLoggedIn.unsubscribe();
  }
 
  createForm() {
@@ -47,6 +47,6 @@ export class HeaderComponent implements OnInit {
  
  onSubmit() {
    console.log('Login Submitted');
-   this._service.login(this._logInForm.value);
+   this._authService.login(this._logInForm.value);
  }
 }

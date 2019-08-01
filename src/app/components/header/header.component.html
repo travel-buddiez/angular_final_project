@@ -1,5 +1,5 @@
 <nav class="mb-1 navbar navbar-expand-lg" id="navbar">
-  <a class="navbar-brand" href="#">Travel Buddiez</a>
+  <a class="navbar-brand" routerLink="../landing">Travel Buddiez</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-333"
     aria-controls="navbarSupportedContent-333" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -26,16 +26,16 @@
     <ul class="navbar-nav ml-auto nav-flex-icons">
       <div class="nav-item dropdown">
         <li>
-          <a href="#" *ngIf="!_isLoggedIn; else elseBlock">Login</a>
+          <a href="#" *ngIf="!isLoggedIn; else elseBlock">Login</a>
         </li>
           <ng-template #elseBlock>
             <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-333" data-toggle="dropdown"      aria-haspopup="true"
-              aria-expanded="false" *ngIf="auth">
+              aria-expanded="false">
               <img src="assets/img/defaultuser.png" class="rounded-circle z-depth-0" alt="avatar image" height="50">
             </a>
             <div class="dropdown-menu dropdown-menu-right dropdown-default" aria-labelledby="navbarDropdownMenuLink-333">
-              <a class="dropdown-item" href="#" #notlogged>Profile</a>
-              <a class="dropdown-item" href="#" #notlogged>Logout</a>
+              <a class="dropdown-item" routerLink="../profile" #notlogged>Profile</a>
+              <a class="dropdown-item" href="#" click="logout()" #notlogged>Logout</a>
             </div>
           </ng-template>
         </div>
