@@ -7,7 +7,7 @@ import { Token } from '../models/Token';
 import { LoginUser } from "../models/loginUser"
 import { User } from "../models/UserInfo"
 
-const Api_Url = 'http://localhost:5000';
+const Api_Url = 'http://127.0.0.1:5000';
 
 @Injectable({
   providedIn: 'root'
@@ -21,8 +21,6 @@ export class AuthService {
 
   register(regUserData: RegisterUser) {
     return this._http.post(`${Api_Url}/user/`, regUserData);
-    
-    this._router.navigate(['../components/clicked-continent-page']);
   }
 
   login(loginUserData: LoginUser) {
