@@ -24,6 +24,7 @@
               "src/assets"
             ],
             "styles": [
+<<<<<<< HEAD
               "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "src/styles.css"
             ],
@@ -32,6 +33,11 @@
               "node_modules/bootstrap/dist/js/bootstrap.min.js", 
               "node_modules/popper.js/dist/umd/popper.min.js"
             ]
+=======
+              "src/styles.css"
+            ],
+            "scripts": []
+>>>>>>> 50ba44a4ab2794084404e89963d16c288e590da5
           },
           "configurations": {
             "production": {
