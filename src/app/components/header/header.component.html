@@ -25,15 +25,20 @@
 
 
     <ul class="navbar-nav ml-auto nav-flex-icons">
-      <li class="nav-item dropdown">
-        <li><a href="#" *ngIf="!auth">Login</a></li>
-          <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-333" data-toggle="dropdown" aria-haspopup="true"
-            aria-expanded="false" *ngIf="auth">
-            <img src="assets/img/defaultuser.png" class="rounded-circle z-depth-0" alt="avatar image" height="50">
-          </a>
-          <div *ngIf="auth" class="dropdown-menu dropdown-menu-right dropdown-default" aria-labelledby="navbarDropdownMenuLink-333">
-            <a class="dropdown-item" href="#" #notlogged>Profile</a>
-            <a class="dropdown-item" href="#" #notlogged>Logout</a>
+      <div class="nav-item dropdown">
+        <li>
+          <a href="#" *ngIf="!_isLoggedIn; else elseBlock">Login</a>
+        </li>
+          <ng-template #elseBlock>
+            <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-333" data-toggle="dropdown"      aria-haspopup="true"
+              aria-expanded="false" *ngIf="auth">
+              <img src="assets/img/defaultuser.png" class="rounded-circle z-depth-0" alt="avatar image" height="50">
+            </a>
+            <div class="dropdown-menu dropdown-menu-right dropdown-default" aria-labelledby="navbarDropdownMenuLink-333">
+              <a class="dropdown-item" href="#" #notlogged>Profile</a>
+              <a class="dropdown-item" href="#" #notlogged>Logout</a>
+            </div>
+          </ng-template>
         </div>
     </ul>
 
