@@ -21,6 +21,8 @@ export class AuthService {
 
   register(regUserData: RegisterUser) {
     return this._http.post(`${Api_Url}/user/`, regUserData);
+    
+    this._router.navigate(['../components/clicked-continent-page']);
   }
 
   login(loginUserData: LoginUser) {
