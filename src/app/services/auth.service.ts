@@ -28,7 +28,6 @@ export class AuthService {
     ( (token: Token) => {
       localStorage.setItem("auth_token", token.Authorization);
       // localStorage.setItem("public_id", token.Id);
-      this._router.navigate(['../components/clicked-continent-page']);
       this.isLoggedIn.next(true);
     });
   }
