@@ -34,12 +34,10 @@ const routes = [
   ]},
   { path: 'register', component: RegistrationComponent },
   { path: 'login', component: LoginComponent },
-  { path: 'profile', component: ProfileComponent, children: [
-    { path: 'edit-profile/:id', component: EditprofileComponent }
-  ]},
-  { path: 'main', component: ClickedContinentPageComponent, canActivate: [AuthGuard], children: [
-    { path: 'edit-continent-page', component: EditContinentPageComponent }
-  ]},
+  { path: 'profile', component: ProfileComponent },
+  { path: 'edit-profile', component: EditprofileComponent },
+  { path: 'main', component: ClickedContinentPageComponent, canActivate: [AuthGuard] },
+  { path: 'edit-continent-page', component: EditContinentPageComponent },
   { path: '**', component: LandingComponent}
 ]
 
