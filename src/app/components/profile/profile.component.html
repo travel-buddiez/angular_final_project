@@ -6,14 +6,15 @@
             {{ profile.name }}  
             {{ profile.registered_on }}  
             {{ profile.bio }}
+            <button routerLink="../edit-profile" class="btn btn-primary" type="submit">Edit</button>
+            <button routerLink="this would be a pop up message saying "class="btn btn-danger">Delete</button> 
         </li>
         <div class="img_card">
-            <h1>user's image goes here</h1>
-            <li *ngIf="profile">
-                {{profile.profilePic}}
-            </li>
-            <button routerLink="../edit-profile" class="btn btn-primary" type="submit">Edit</button>
-            <a routerLink="this would be a pop up message saying 'are you sure?'" class="btn btn-danger">Delete</a> 
+            <img src="../../../assets/img/profilepic.jpg" alt="Default Profile Pic">
         </div>
+        <h3>Name</h3>
+        <h3>Username</h3>
+        <h3>Bio</h3>
     </div>
 </div>
+
