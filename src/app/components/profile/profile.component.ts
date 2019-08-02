@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
-import { AuthService } from '../../services/auth.service';
+import { UserService } from '../../services/user.service';
 import { User } from '../../models/UserInfo';
 
 @Component({
@@ -12,12 +13,17 @@ export class ProfileComponent implements OnInit {
 
   profile: any;
 
-  constructor(private authSerivce: AuthService) {
+  constructor(private _userService: UserService, private _router: Router) {
    }
 
   ngOnInit() {
     this.profile = (localStorage.getItem('auth_token'));
     console.log(this.profile)
+  }
+
+  deleteProfile(auth_token) {
+    this._userService.deleteMe(auth_token);
+    this._router.navigate(['/'])
   }
 
 }
