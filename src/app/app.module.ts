@@ -37,9 +37,8 @@ const routes = [
   { path: 'profile', component: ProfileComponent, children: [
     { path: 'edit-profile/:id', component: EditprofileComponent }
   ]},
-  { path: 'main', component: ClickedContinentPageComponent, canActivate: [AuthGuard], children: [
-    { path: 'edit-continent-page', component: EditContinentPageComponent }
-  ]},
+  { path: 'main', component: ClickedContinentPageComponent },
+  { path: 'edit-continent-page', component: EditContinentPageComponent },
   { path: '**', component: LandingComponent}
 ]
 
