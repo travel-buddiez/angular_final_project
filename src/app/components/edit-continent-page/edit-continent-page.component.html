@@ -1,1 +1,23 @@
-<h1>Page Works</h1>
+<br>
+<br>
+<div class="container" id="master_container">
+    <div class="continent_container">
+        <h1 style="text-align: center; color: white;">Continent</h1>
+        <div *ngFor="let continent of continent$">            
+            <h2>{{ continent.name }}</h2>
+            <p>
+                {{ continent.customs}}
+                
+                <br>
+
+                {{ continent.taboos }}
+
+                <br>
+
+                {{ continent.suggestions}}
+
+                <br>
+            </p>
+        </div>
+    </div>
+</div>

@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Continent } from "./continent.model";
+import { DataService } from "./data.service";
 
 
 @Component({
@@ -6,6 +8,13 @@ import { Component } from '@angular/core';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
-  title = 'angular-travel-buddiez';
+export class AppComponent implements OnInit {
+  continent$: Continent[];
+
+  constructor(private dataServices: DataService) {}
+
+  ngOnInit() {
+    return this.dataServices.getContinent()
+      .subscribe(data => this.continent$ = data);
+  }
 }
