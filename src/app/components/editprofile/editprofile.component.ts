@@ -20,8 +20,7 @@ export class EditprofileComponent implements OnInit {
   onSubmit() {
       this._userService.editMe(this.profile).subscribe( () => 
       this._router.navigate(['../profile']));     
-    }
-  
+    } 
 
   deleteUser(profile) {
     this._userService.deleteMe(this.profile).subscribe( () =>

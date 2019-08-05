@@ -11,3 +11,7 @@
     box-shadow: 10px 10px 50px 0px rgba(0,0,0,0.55);
     background-color: rgba(31, 54, 61, 0.9);
   }
+
+button {
+    margin-bottom: 2em;
+}

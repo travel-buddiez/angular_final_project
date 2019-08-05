@@ -27,7 +27,6 @@ export class AuthService {
     return this._http.post(`${Api_Url}/auth/login`, loginUserData).subscribe
     ( (token: Token) => {
       localStorage.setItem("auth_token", token.Authorization);
-      // localStorage.setItem("public_id", token.Id);
       this.isLoggedIn.next(true);
       callback();
     });
@@ -36,7 +35,7 @@ export class AuthService {
   logout() {
     localStorage.clear();
     this.isLoggedIn.next(false);
-    this._router.navigate(['../components/login']);
+    this._router.navigate(['login']);
   }
 
   private setHeader(): HttpHeaders {

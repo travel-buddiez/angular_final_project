@@ -1,20 +1,22 @@
 <div class="container">
     <div class="profile_card">
         <h1 style="float: right; color: white;"></h1>
+        <div class="img_card">
+            <img src="../../../assets/img/profilepic.jpg" alt="Default Profile Pic">
+        </div>
+        <br>
+        <br>
+        <br>
+        <br>
+        
         <li *ngIf="profile">  
             {{ profile.username }}
             {{ profile.name }}  
             {{ profile.registered_on }}  
             {{ profile.bio }}
             <button routerLink="../edit-profile" class="btn btn-primary" type="submit">Edit</button>
-            <button routerLink="this would be a pop up message saying "class="btn btn-danger">Delete</button> 
+            <button (click)="deleteProfile()" class="btn btn-danger">Delete</button> 
         </li>
-        <div class="img_card">
-            <img src="../../../assets/img/profilepic.jpg" alt="Default Profile Pic">
-        </div>
-        <h3>Name</h3>
-        <h3>Username</h3>
-        <h3>Bio</h3>
     </div>
 </div>
 
