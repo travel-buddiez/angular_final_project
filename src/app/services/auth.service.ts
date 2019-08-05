@@ -39,6 +39,6 @@ export class AuthService {
   }
 
   private setHeader(): HttpHeaders {
-    return new HttpHeaders().set('Authorization', `Bearer ${localStorage.getItem('id_token')}`);
+    return new HttpHeaders().set('Authorization', `${localStorage.getItem('auth_token')}`);
   }
 }

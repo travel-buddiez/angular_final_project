@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { UserService } from '../../services/user.service';
+import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-editprofile',
@@ -9,21 +10,40 @@ import { UserService } from '../../services/user.service';
 })
 export class EditprofileComponent implements OnInit {
 
-  profile: any;
+  user: any;
+  updateForm: FormGroup;
 
-  constructor(private _route: ActivatedRoute, private _router: Router, private _userService: UserService) {
+  constructor(private _form: FormBuilder, private _route: ActivatedRoute, private _router: Router, private _userService: UserService) {
+
+    this._userService.userInfo.subscribe( value => {
+      console.log(value);
+      this.user = value;
+      console.log(this.user)
+    });
+    this.createForm();
    }
+  
+  createForm() {
+    this.updateForm = this._form.group({
+      username: new FormControl,
+      email: new FormControl,
+      bio: new FormControl,
+    });
+  }
+
 
   ngOnInit() {
+    this._userService.getMe();
   }
    
   onSubmit() {
-      this._userService.editMe(this.profile).subscribe( () => 
+      console.log(this.updateForm.value)
+      this._userService.editMe(this.updateForm.value).subscribe( () => 
       this._router.navigate(['../profile']));     
     } 
 
-  deleteUser(profile) {
-    this._userService.deleteMe(this.profile).subscribe( () =>
+  deleteUser(user) {
+    this._userService.deleteMe(this.user).subscribe( () =>
     this._router.navigate(['../landing']));
   }
 

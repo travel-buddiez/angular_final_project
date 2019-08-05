@@ -7,6 +7,11 @@ import { User } from "../models/UserInfo"
 
 const Api_Url = 'http://localhost:5000';
 
+interface ResponseData {
+  "status": string;
+  "data": User;
+}
+
 @Injectable({
   providedIn: 'root'
 })
@@ -16,11 +21,13 @@ export class UserService {
   constructor(private _http: HttpClient, private _router: Router) { }
 
   getMe() {
-    return this._http.get(`${Api_Url}/user/me`, { headers: this.setHeader() });
+    return this._http.get(`${Api_Url}/user/me`, { headers: this.setHeader() }).subscribe((value : ResponseData) => {
+      this.userInfo.next(value.data);
+    });
   }
 
-  editMe(auth_token) {
-    return this._http.put(`${Api_Url}/user/edit/${auth_token}`, { headers: this.setHeader() });
+  editMe(data) {
+    return this._http.put(`${Api_Url}/user/edit`, data, { headers: this.setHeader() });
   }
 
   deleteMe(auth_token) {
@@ -28,6 +35,6 @@ export class UserService {
   }
 
   private setHeader(): HttpHeaders {
-    return new HttpHeaders().set('Authorization', `Bearer ${localStorage.getItem('id_token')}`);
+    return new HttpHeaders().set('Authorization', `${localStorage.getItem('auth_token')}`);
   }
 }

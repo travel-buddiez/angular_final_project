@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Continent } from "./continent.model";
-import { DataService } from "./data.service";
 
 
 @Component({
@@ -9,12 +7,9 @@ import { DataService } from "./data.service";
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  continent$: Continent[];
 
-  constructor(private dataServices: DataService) {}
+  constructor() {}
 
   ngOnInit() {
-    return this.dataServices.getContinent()
-      .subscribe(data => this.continent$ = data);
   }
 }

@@ -14,10 +14,14 @@ export class ProfileComponent implements OnInit {
   profile: any;
 
   constructor(private _userService: UserService, private _router: Router) {
-   }
+    this._userService.userInfo.subscribe( value => {
+      console.log(value)
+      this.profile = value 
+    })
+  }
 
   ngOnInit() {
-    this._userService.getMe().subscribe( value => this.profile = value)
+    this._userService.getMe();
   }
 
   deleteProfile(auth_token) {
