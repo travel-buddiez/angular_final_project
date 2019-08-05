@@ -15,16 +15,16 @@ export class UserService {
 
   constructor(private _http: HttpClient, private _router: Router) { }
 
-  getMe(public_id) {
-    return this._http.get(`${Api_Url}/users/${public_id}`, { headers: this.setHeader() });
+  getMe() {
+    return this._http.get(`${Api_Url}/user/me`, { headers: this.setHeader() });
   }
 
   editMe(auth_token) {
-    return this._http.put(`${Api_Url}/users/edit/${auth_token}`, { headers: this.setHeader() });
+    return this._http.put(`${Api_Url}/user/edit/${auth_token}`, { headers: this.setHeader() });
   }
 
   deleteMe(auth_token) {
-    return this._http.delete(`${Api_Url}/users/${auth_token}`, { headers: this.setHeader() });
+    return this._http.delete(`${Api_Url}/user/${auth_token}`, { headers: this.setHeader() });
   }
 
   private setHeader(): HttpHeaders {
