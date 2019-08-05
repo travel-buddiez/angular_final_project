@@ -9,14 +9,22 @@
         <br>
         <br>
         
-        <li *ngIf="profile">  
-            {{ profile.username }}
-            {{ profile.name }}  
-            {{ profile.registered_on }}  
-            {{ profile.bio }}
+        <div *ngIf="profile">
+            <p> 
+                {{ profile.email }}
+            </p>
+            <p>
+                {{ profile.name }}  
+            </p>
+            <p>
+                {{ profile.registered_on }}  
+            </p>
+            <p>
+                {{ profile.bio }}
+            </p>
             <button routerLink="../edit-profile" class="btn btn-primary" type="submit">Edit</button>
             <button (click)="deleteProfile()" class="btn btn-danger">Delete</button> 
-        </li>
+        </div>
     </div>
 </div>
 
