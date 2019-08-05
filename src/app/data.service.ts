@@ -7,7 +7,7 @@ import { Continent } from "./continent.model";
 })
 
 export class DataService {
-apiUrl ="#";
+apiUrl ="http://localhost:5000/user/testing";
 
     constructor(private _http: HttpClient) {}
 
