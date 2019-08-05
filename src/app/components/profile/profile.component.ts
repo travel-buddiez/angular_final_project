@@ -17,13 +17,20 @@ export class ProfileComponent implements OnInit {
    }
 
   ngOnInit() {
-    this.profile = (localStorage.getItem('auth_token'));
-    console.log(this.profile)
+    this._userService.getMe().subscribe( value => this.profile = value)
   }
 
   deleteProfile(auth_token) {
-    this._userService.deleteMe(auth_token);
-    this._router.navigate(['/'])
+    var result = confirm("Are you sure you want to delete?");
+    switch (result) {
+      case true:
+       this._userService.deleteMe(auth_token);
+       this._router.navigate(['/']);
+       break;
+      case false:
+       this._router.navigate(['profile']);
+       break;
+    }
   }
 
 }

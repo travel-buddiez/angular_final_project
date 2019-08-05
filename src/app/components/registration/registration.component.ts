@@ -32,6 +32,7 @@ export class RegistrationComponent implements OnInit {
   onSubmit() {
     this._authService.register(this.registerForm.value).subscribe( () => {
       this._router.navigate(['../login']);
+      alert('Registration Complete');
     })
   }
 
