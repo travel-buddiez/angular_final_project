@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" id="master_container">
     <div class="card"> 
         <h1 style="color: white;">Edit Profile</h1>
 
@@ -17,7 +17,7 @@
                     </div>
                     <div>
                         <mat-form-field id="register_input">
-                            <input matInput placeholder="email" formControlName="email" type="email"/>{{ user.email }}
+              <input matInput placeholder="email" formControlName="email" type="email"/>{{ user.email }}
                         </mat-form-field>
                     </div>
                     <div>
@@ -26,7 +26,7 @@
                         </mat-form-field>
                     </div>
                 </div>
-                <button mat-raised-button class="nav-btn" color="primary" type="submit">Update</button>
+                <button mat-raised-button class="nav-btn" color="primary" type="submit" id="button">Update</button>
             </form>
         </div>
     </div>

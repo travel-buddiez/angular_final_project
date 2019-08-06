@@ -3,30 +3,25 @@
 <div class="container" id="master_container">
     <div class="continent_container">
         <h1 style="text-align: center; color: white;">Continent</h1>
-        <div *ngFor="let continent of continent$.data">            
-            <h2>{{ continent.name }}</h2>
+        <div *ngFor="let continent of continent$.data">
             <p>
-                {{ continent.customs }}
-                
-                <br>
-
-                {{ continent.taboos }}
-
-                <br>
-
-                {{ continent.id }}
-                <br>
-                {{ continent.authored_by }}
-                <br>
-                {{ continent.created_on }}
-                <br>
-                {{ continent.classification }}
-                <br>
-                {{ continent.continent }}
-                <br>
                 {{ continent.content }}
                 <br>
-
+                <br>
+                Customs:
+                <br>
+                {{ continent.customs}}
+                <br>
+                <br>
+                Taboos: 
+                <br>
+                {{ continent.taboos}}
+                <br>
+                <br>
+                Suggestions: 
+                <br>
+                {{ continent.suggestions}}
+                <br>
                 <br>
             </p>
         </div>
