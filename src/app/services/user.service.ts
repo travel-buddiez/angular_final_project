@@ -31,7 +31,7 @@ export class UserService {
   }
 
   deleteMe(auth_token) {
-    return this._http.delete(`${Api_Url}/user/${auth_token}`, { headers: this.setHeader() });
+    return this._http.delete(`${Api_Url}/user/me`, { headers: this.setHeader() });
   }
 
   private setHeader(): HttpHeaders {

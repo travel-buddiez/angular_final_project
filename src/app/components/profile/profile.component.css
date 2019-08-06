@@ -27,6 +27,10 @@ img {
     margin-bottom: 25px;  
 }
 
+.img_card {
+    height: 200px;
+}
+
 button {
     float: right;
 }
@@ -34,4 +38,17 @@ button {
 h3 {
     color: white;
     text-align: center;
+}
+
+.info {
+    display: flex;
+    justify-content: center;
+}
+
+p {
+    margin: 10px;
+    font-weight: 200;
+    color: white;
+    font-size: 25pt;
+    display: block;
 }

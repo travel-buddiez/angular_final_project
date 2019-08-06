@@ -4,8 +4,8 @@ import { Router } from '@angular/router';
 import { Observable, Subject } from 'rxjs';
 import { RegisterUser } from '../models/RegisterUser';
 import { Token } from '../models/Token';
-import { LoginUser } from "../models/loginUser"
-import { User } from "../models/UserInfo"
+import { LoginUser } from '../models/loginUser'
+import { User } from '../models/UserInfo'
 
 const Api_Url = 'http://127.0.0.1:5000';
 
@@ -26,7 +26,7 @@ export class AuthService {
   login(loginUserData: LoginUser, callback: Function) {
     return this._http.post(`${Api_Url}/auth/login`, loginUserData).subscribe
     ( (token: Token) => {
-      localStorage.setItem("auth_token", token.Authorization);
+      localStorage.setItem('auth_token', token.Authorization);
       this.isLoggedIn.next(true);
       callback();
     });

@@ -25,7 +25,6 @@ export class RegistrationComponent implements OnInit {
       password: new FormControl,
       confirmPassword: new FormControl,
       bio: new FormControl,
-      profilePic: new FormControl
     });
   }
 

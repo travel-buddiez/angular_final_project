@@ -7,7 +7,12 @@
                 <div>
                     <div>
                         <mat-form-field id="register_input">
-                            <input matInput placeholder="{{ user.name }}" formControlName="username" type="username"/>
+                            <input matInput placeholder="{{ user.name }}" formControlName="name" type="name"/>
+                        </mat-form-field>
+                    </div>
+                    <div>
+                        <mat-form-field id="register_input">
+                            <input matInput placeholder="{{ user.username }}" formControlName="username" type="username"/>
                         </mat-form-field>
                     </div>
                     <div>
@@ -18,7 +23,7 @@
                     <div>
                         <mat-form-field id="register_input">
                             <input matInput placeholder="Bio" formControlName="bio" type="bio"/>
-                        </mat-form-field>Email
+                        </mat-form-field>
                     </div>
                 </div>
                 <button mat-raised-button class="nav-btn" color="primary" type="submit">Update</button>

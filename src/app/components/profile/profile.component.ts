@@ -28,12 +28,13 @@ export class ProfileComponent implements OnInit {
     var result = confirm("Are you sure you want to delete?");
     switch (result) {
       case true:
-       this._userService.deleteMe(auth_token);
-       this._router.navigate(['/']);
-       break;
+        localStorage.clear();
+        this._userService.deleteMe(auth_token);
+        this._router.navigate(['/']);
+        break;
       case false:
-       this._router.navigate(['profile']);
-       break;
+        this._router.navigate(['profile']);
+        break;
     }
   }
 
