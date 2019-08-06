@@ -1,29 +1,29 @@
 <div class="container">
     <div class="profile_card">
+        <button (click)="deleteProfile()" class="btn btn-danger">Delete</button> 
+        <button routerLink="../edit-profile" class="btn btn-primary" type="submit">Edit</button>
         <h1 style="float: right; color: white;"></h1>
         <div class="img_card">
             <img src="../../../assets/img/profilepic.jpg" alt="Default Profile Pic">
         </div>
-        <br>
-        <br>
-        <br>
-        <br>
-        
-        <div *ngIf="profile">
-            <p> 
-                {{ profile.email }}
-            </p>
-            <p>
-                {{ profile.name }}  
-            </p>
-            <p>
-                {{ profile.registered_on }}  
-            </p>
-            <p>
-                {{ profile.bio }}
-            </p>
-            <button routerLink="../edit-profile" class="btn btn-primary" type="submit">Edit</button>
-            <button (click)="deleteProfile()" class="btn btn-danger">Delete</button> 
+        <div class="info">
+            <div *ngIf="profile">
+                <p><u>
+                    Name</u>: {{ profile.name }}  
+                </p>
+                <p><u>
+                    Username</u>: {{ profile.username }}  
+                </p>
+                <p><u>
+                    Email</u>: {{ profile.email }}
+                </p>
+                <p><u>
+                    Bio</u>: {{ profile.bio }}
+                </p>
+                <p><span style="font-size:0.5em;">
+                    Registered on: {{ profile.registered_on }}  
+                </span></p>
+            </div>
         </div>
     </div>
 </div>

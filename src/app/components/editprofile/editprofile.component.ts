@@ -25,6 +25,7 @@ export class EditprofileComponent implements OnInit {
   
   createForm() {
     this.updateForm = this._form.group({
+      name: new FormControl,
       username: new FormControl,
       email: new FormControl,
       bio: new FormControl,
@@ -41,10 +42,5 @@ export class EditprofileComponent implements OnInit {
       this._userService.editMe(this.updateForm.value).subscribe( () => 
       this._router.navigate(['../profile']));     
     } 
-
-  deleteUser(user) {
-    this._userService.deleteMe(this.user).subscribe( () =>
-    this._router.navigate(['../landing']));
-  }
 
 }

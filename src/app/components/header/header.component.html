@@ -10,9 +10,6 @@
         <a class="nav-link" routerLink="../register">Register</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" routerLink="../profile">Profile</a>
-      </li>
-      <li class="nav-item">
         <a class="nav-link" routerLink="../main">Continent</a>
       </li>
     </ul>
@@ -27,9 +24,9 @@
               aria-expanded="false">
               <img src="../../../assets/img/defaultuser.png" class="rounded-circle z-depth-0" alt="avatar image" height="50">
             </a>
-            <div href="#" class="dropdown-menu dropdown-menu-right dropdown-default" aria-labelledby="navbarDropdownMenuLink-333">
+            <div class="dropdown-menu dropdown-menu-right dropdown-default" aria-labelledby="navbarDropdownMenuLink-333">
               <a class="dropdown-item" routerLink="../profile" #notlogged>Profile</a>
-              <a class="dropdown-item" href="#" click="logout()" #notlogged>Logout</a>
+              <a class="dropdown-item" (click)="logout()" #notlogged>Logout</a>
             </div>
           </ng-template>
         </div>
