@@ -30,7 +30,7 @@ export class UserService {
     return this._http.put(`${Api_Url}/user/edit`, data, { headers: this.setHeader() });
   }
 
-  deleteMe(auth_token) {
+  deleteMe() {
     return this._http.delete(`${Api_Url}/user/me`, { headers: this.setHeader() });
   }
 
