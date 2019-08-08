@@ -10,13 +10,11 @@ import { AuthService } from '../../services/auth.service';
 
 export class HeaderComponent implements OnInit {
  
- private _logInForm: FormGroup;
  private _username: string;
  private _subscription;
  isLoggedIn;
 
- constructor(private _form: FormBuilder, private _authService: AuthService) {
-   this.createForm();
+ constructor(private _authService: AuthService) {
    this._subscription = this._authService.userInfo.subscribe( (value) => {
      this._username = value.username;
    });
@@ -38,15 +36,4 @@ export class HeaderComponent implements OnInit {
    this.isLoggedIn.unsubscribe();
  }
 
- createForm() {
-   this._logInForm = this._form.group({
-     email: new FormControl,
-     password: new FormControl,
-   })
- }
- 
- onSubmit() {
-   console.log('Login Submitted');
-   this._authService.login(this._logInForm.value);
- }
 }

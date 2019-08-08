@@ -1,19 +1,23 @@
-<div class="container">
+<div class="container" id="master_container">
     <div class="card"> 
         <h1 style="color: white;">Edit Profile</h1>
-        <hr>
 
         <div class="wrapper ">
-            <form>
+            <form (ngSubmit)=onSubmit() [formGroup]="updateForm">
                 <div>
                     <div>
                         <mat-form-field id="register_input">
-                            <input matInput placeholder="Username" formControlName="username" type="username"/>
+                            <input matInput placeholder="name" formControlName="name" type="name"/>{{ user.name }}
                         </mat-form-field>
                     </div>
                     <div>
                         <mat-form-field id="register_input">
-                            <input matInput placeholder="Email" formControlName="email" type="email"/>
+                            <input matInput placeholder="username" formControlName="username" type="username"/>{{ user.username }}
+                        </mat-form-field>
+                    </div>
+                    <div>
+                        <mat-form-field id="register_input">
+              <input matInput placeholder="email" formControlName="email" type="email"/>{{ user.email }}
                         </mat-form-field>
                     </div>
                     <div>
@@ -21,13 +25,8 @@
                             <input matInput placeholder="Bio" formControlName="bio" type="bio"/>
                         </mat-form-field>
                     </div>
-                    <div>
-                        <mat-form-field id="register_input">
-                            <input matInput placeholder="Profile Pic" formControlName="profilePic" type="profileImage"/>
-                        </mat-form-field >
-                    </div>
                 </div>
-                <button mat-raised-button class="nav-btn" color="primary" type="submit" click="">Update</button>
+                <button mat-raised-button class="nav-btn" color="primary" type="submit" id="button">Update</button>
             </form>
         </div>
     </div>

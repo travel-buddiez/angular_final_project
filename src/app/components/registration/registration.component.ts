@@ -25,13 +25,13 @@ export class RegistrationComponent implements OnInit {
       password: new FormControl,
       confirmPassword: new FormControl,
       bio: new FormControl,
-      profilePic: new FormControl
     });
   }
 
   onSubmit() {
     this._authService.register(this.registerForm.value).subscribe( () => {
       this._router.navigate(['../login']);
+      alert('Registration Complete');
     })
   }
 

@@ -29,8 +29,9 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit() {
-    this._authService.login(this.loginForm.value);
-    this._router.navigate(['../clicked-continent-page']);
+    this._authService.login(this.loginForm.value, () => {
+      this._router.navigate(['main']);
+    });
   }
 
   logout() {

@@ -36,7 +36,7 @@ const routes = [
   { path: 'login', component: LoginComponent },
   { path: 'profile', component: ProfileComponent },
   { path: 'edit-profile', component: EditprofileComponent },
-  { path: 'main', component: ClickedContinentPageComponent, canActivate: [AuthGuard] },
+  { path: 'main', component: ClickedContinentPageComponent },
   { path: 'edit-continent-page', component: EditContinentPageComponent },
   { path: '**', component: LandingComponent}
 ]

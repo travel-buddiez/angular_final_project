@@ -1,9 +1,8 @@
 .container {
-    padding: 100px 50px 100px 0;
-    margin-left: auto;
-    margin-right: auto;
+    margin: 0 auto;
     display: flex;
     justify-content: center;
+    text-align: center;
 }
 
 .wrapper {
@@ -20,8 +19,22 @@ input {
     transition: 0.3s;
     width: 40%;
     background-color: rgba(31, 54, 61, 0.9);
+    margin: 0 auto;
+    padding-top: 4%;
 }
 
 .card:hover {
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+#master_container {
+    padding-top: 5%;
+    margin: 0 auto;
+}
+
+#button {
+    width: 200px;
+    text-align: center;
+    margin: 0 auto;
+    margin-bottom: 2em;
 }

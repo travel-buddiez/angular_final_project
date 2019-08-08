@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
-const Api_Url = 'travelb.us-east-1.elasticbeanstalk.com';
+const Api_Url ="http://localhost:5000";
 
 
 @Injectable({
@@ -10,4 +10,12 @@ const Api_Url = 'travelb.us-east-1.elasticbeanstalk.com';
 export class PostsService {
 
   constructor(private _http: HttpClient) { }
+
+  getPost(id) {
+    return this._http.get(`${Api_Url}/tcs/${id}`)
+  }
+
+  getAll() {
+    return this._http.get(`${Api_Url}/tcs/whatever`)
+  }
 }
